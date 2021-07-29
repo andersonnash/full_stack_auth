@@ -5,12 +5,13 @@ import { useHistory } from "react-router-dom";
 
 const SignUp = (props) => {
   const [input, setInput] = useState({ username: "", email: "", password: "" });
+  const history = useHistory;
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = await signUp(input);
     console.log(user);
     props.setUser(user);
-    // history.push();
+    history.push();
   };
 
   const handleInput = (e) => {

@@ -13,7 +13,7 @@ const SignIn = (props) => {
     const user = await signIn(input);
     console.log(user);
     setUser(user);
-    history.push();
+    history.push("/");
   };
 
   const handleInput = (e) => {

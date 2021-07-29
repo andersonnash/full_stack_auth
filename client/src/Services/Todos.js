@@ -8,3 +8,12 @@ export const getAllTodos = async () => {
     throw error;
   }
 };
+
+export const createTodo = async (input) => {
+  try {
+    const res = await api.post("/Todos", input);
+    console.log(res.data);
+  } catch (error) {
+    throw error;
+  }
+};
