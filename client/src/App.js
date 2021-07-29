@@ -1,10 +1,15 @@
-import logo from "./logo.svg";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { Route } from "react-router-dom";
 import Home from "./views/Home/Home";
 import SignUp from "./views/SignUp/SignUp";
+import SignIn from "./views/SignIn/SignIn";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {}, []);
+
   return (
     <div className="App">
       {/* // route for all todos */}
@@ -14,9 +19,12 @@ function App() {
       {/* //route for single todo  */}
       {/* //route for create todo  */}
       {/* //route for login  */}
+      <Route path="/sign-in">
+        <SignIn setUser={setUser} />
+      </Route>
       {/* //route for sign-up  */}
       <Route path="/sign-up">
-        <SignUp />
+        <SignUp setUser={setUser} />
       </Route>
     </div>
   );

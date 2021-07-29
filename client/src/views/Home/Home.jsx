@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import { getAllTodos } from "../../Services/Todos";
 
-const Home = () => {
+const Home = (props) => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const Home = () => {
     fetchTodos();
   }, []);
   return (
-    <Layout>
+    <Layout user={props.user}>
       {todos.map((todo) => (
         <div>{todo.name}</div>
       ))}

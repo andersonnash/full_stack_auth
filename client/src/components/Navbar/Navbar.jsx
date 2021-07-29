@@ -1,7 +1,5 @@
 import React from "react";
 
-const Navbar = () => {
-  return <div>Navbar</div>;
-};
-
-export default Navbar;
+export default function Navbar(props) {
+  return <div>Nav {props.user?.username}</div>;
+}

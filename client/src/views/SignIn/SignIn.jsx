@@ -1,16 +1,19 @@
-import { useState } from "react";
+import React from "react";
 import Layout from "../../components/Layout/Layout";
-import { signUp } from "../../Services/users";
+import { signIn } from "../../Services/users";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
-const SignUp = (props) => {
-  const [input, setInput] = useState({ username: "", email: "", password: "" });
+const SignIn = (props) => {
+  const [input, setInput] = useState({ email: "", password: "" });
+  const { setUser } = props;
+  const history = useHistory();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await signUp(input);
+    const user = await signIn(input);
     console.log(user);
-    props.setUser(user);
-    // history.push();
+    setUser(user);
+    history.push();
   };
 
   const handleInput = (e) => {
@@ -24,18 +27,11 @@ const SignUp = (props) => {
     <div>
       SignUp
       <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          id="username"
-          type="text"
-          value={input.username}
-          onChange={handleInput}
-        />
         <label>Email</label>
         <input
           id="email"
           type="email"
-          value={input.email}
+          value={input.username}
           onChange={handleInput}
         />
         <label>Password</label>
@@ -45,10 +41,10 @@ const SignUp = (props) => {
           value={input.password}
           onChange={handleInput}
         />
-        <button>Sign Up</button>
+        <button>Sign In</button>
       </form>
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;
