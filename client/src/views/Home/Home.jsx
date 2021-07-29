@@ -13,7 +13,7 @@ const Home = (props) => {
     fetchTodos();
   }, []);
   return (
-    <Layout user={props.user}>
+    <Layout user={props.user} setUser={props.setUser}>
       {todos.map((todo) => (
         <div>{todo.name}</div>
       ))}

@@ -6,7 +6,9 @@ const Layout = (props) => {
   return (
     <div>
       <Navbar />
-      <div>{props.children}</div>
+      <div>
+        {props.children} setUser={props.setUser}
+      </div>
       <Footer />
     </div>
   );
