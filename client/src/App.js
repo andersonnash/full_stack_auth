@@ -4,11 +4,17 @@ import { Route } from "react-router-dom";
 import Home from "./views/Home/Home";
 import SignUp from "./views/SignUp/SignUp";
 import SignIn from "./views/SignIn/SignIn";
+import { verify } from "./Services/users";
 
 function App() {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const verifyuser = async () => {
+      setUser(await verify());
+    };
+    verifyuser();
+  }, []);
 
   return (
     <div className="App">
